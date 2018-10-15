@@ -1,0 +1,7 @@
+<!-- pages/classic/classic.wxml -->
+<view class="topContainer">
+  <ldy-epsoide index="{{classicData.index}}"/>
+  <ldy-like bind:like="onLike" like="{{classicData.like_status}}" count="{{classicData.fav_nums}}" />
+</view>
+<ldy-movie bookStr="{{classicData.image}}" content="{{classicData.content}}"></ldy-movie>
+<ldy-nav title="{{classicData.title}}"></ldy-nav>

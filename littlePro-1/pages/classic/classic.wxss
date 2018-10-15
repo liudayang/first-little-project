@@ -1,0 +1,6 @@
+/* pages/classic/classic.wxss */
+.topContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}

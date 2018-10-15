@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "ldy-like": "/components/like/index",
+    "ldy-epsoide": "/components/epsoide/index",
+    "ldy-movie": "/components/classic/movie/index",
+    "ldy-nav": "/components/nav/index"
+  }
+}
