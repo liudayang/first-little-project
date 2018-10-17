@@ -1,6 +1,11 @@
 /* pages/classic/classic.wxss */
 .topContainer{
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center
+}
+.nav{
+    position: absolute;
+    bottom: 40rpx;
 }

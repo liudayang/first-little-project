@@ -3,6 +3,8 @@
     "ldy-like": "/components/like/index",
     "ldy-epsoide": "/components/epsoide/index",
     "ldy-movie": "/components/classic/movie/index",
+    "ldy-music": "/components/classic/music/index",
+    "ldy-essay": "/components/classic/essay/index",
     "ldy-nav": "/components/nav/index"
   }
 }

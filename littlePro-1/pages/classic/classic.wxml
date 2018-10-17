@@ -1,7 +1,11 @@
 <!-- pages/classic/classic.wxml -->
-<view class="topContainer">
-  <ldy-epsoide index="{{classicData.index}}"/>
-  <ldy-like bind:like="onLike" like="{{classicData.like_status}}" count="{{classicData.fav_nums}}" />
+<view class="container">
+  <view class="topContainer">
+    <ldy-epsoide index="{{classicData.index}}" />
+    <ldy-like bind:like="onLike" like="{{like_status}}" count="{{like_count}}" />
+  </view>
+  <ldy-movie hidden="{{classicData.type!=100}}" img="{{classicData.image}}" content="{{classicData.content}}"></ldy-movie>
+  <ldy-music src="{{classicData.url}}"  wx:if="{{classicData.type==200}}" img="{{classicData.image}}" content="{{classicData.content}}"></ldy-music>
+  <ldy-essay hidden="{{classicData.type!=300}}" img="{{classicData.image}}" content="{{classicData.content}}"></ldy-essay>
+  <ldy-nav class="nav" title="{{classicData.title}}" latest="{{latest}}" first="{{first}}" bind:left="onNext" bind:right="onPrevious"></ldy-nav>
 </view>
-<ldy-movie bookStr="{{classicData.image}}" content="{{classicData.content}}"></ldy-movie>
-<ldy-nav title="{{classicData.title}}"></ldy-nav>

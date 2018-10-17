@@ -36,14 +36,19 @@ class ClassicModel extends HTTP {
         }
     }
 
-
     isFirst(index) {
         return index == 1 ? true : false
     }
-
     isLatest(index) {
         let latestIndex = this._getLatestIndex()
         return latestIndex == index ? true : false
+    }
+    _setLatestIndex(index) {
+        wx.setStorageSync('latest', index)
+    }
+    _getLatestIndex() {
+        const index = wx.getStorageSync('latest')
+        return index
     }
 
 
@@ -63,15 +68,7 @@ class ClassicModel extends HTTP {
         this.request(params)
     }
 
-    _setLatestIndex(index) {
-        wx.setStorageSync('latest', index)
-    }
-
-    _getLatestIndex() {
-        const index = wx.getStorageSync('latest')
-        return index
-    }
-
+   
     _getKey(index) {
         const key = 'classic-' + index
         return key

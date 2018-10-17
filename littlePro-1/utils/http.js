@@ -1,7 +1,7 @@
-import { config} from '../config.js';
-const tips={
-  10005:'appkey无效',
-  30000:'期刊不存在'
+import { config } from '../config.js';
+const tips = {
+  10005: 'appkey无效',
+  30000: '期刊不存在'
 }
 class HTTP {
   request(params) {
@@ -13,28 +13,27 @@ class HTTP {
       header: { appkey: config.appkey },
       success: (res) => {
         let code = String(res.statusCode);
-        // code=undefined
-        if(code.startsWith('2')){
+        if (code.startsWith('2')) {
           params.success && params.success(res.data)
-        }else{
+        } else {
           this.show_error(code)
         }
       },
-      fail: (err) => {        
+      fail: (err) => {
         this.show_error(1)
       }
     })
   }
-  show_error(ERR_CODE){
-    if (!ERR_CODE){
+  show_error(ERR_CODE) {
+    if (!ERR_CODE) {
       wx.showToast({
-        title: 'GG-嘿嘿-GG',
+        title: 'GG~~~fail',
         icon: 'none',
         duration: 2000,
       })
-    }else{
+    } else {
       wx.showToast({
-        title: '哈哈-GG',
+        title: 'GG~~~err',
         icon: 'none',
         duration: 2000,
       })
@@ -44,4 +43,4 @@ class HTTP {
 // let a=1;
 // export {a}
 
-export { HTTP}
+export { HTTP }

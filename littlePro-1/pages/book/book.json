@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "ldy-book": "/components/book/index"
+   
+  }
+}
