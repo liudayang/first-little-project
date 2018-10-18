@@ -8,7 +8,7 @@ class HTTP {
 
   request({ url, data = {}, method = 'get'}) {
     return new Promise((reslove, reject) => {
-      this._request(url, reslove, reject, data = {}, method = 'get')
+      this._request(url, reslove, reject, data , method)
     })
   }
 

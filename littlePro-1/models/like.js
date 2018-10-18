@@ -1,6 +1,6 @@
 import { HTTP } from "../utils/http.js"
 
-class LikeModel extends HTTP {
+class LIKEMODEL extends HTTP {
   like(behavior, artID, category, callBack) {
     let url=behavior === 'like' ? 'like' : 'like/cancel'
     this.request({
@@ -11,7 +11,7 @@ class LikeModel extends HTTP {
         type: category
       },
       success: (res) => {
-        callBack(res)
+        callBack&&callBack(res)
       } 
     })
   }
@@ -22,4 +22,4 @@ class LikeModel extends HTTP {
     })
   }
 }
-export { LikeModel }
+export { LIKEMODEL }

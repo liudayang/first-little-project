@@ -88,12 +88,11 @@ Page({
   },
 
   onPost(event) {
+    
     const comment = event.detail.text || event.detail.value
-
     if (!comment) {
       return
     }
-
     if (comment.length > 12) {
       wx.showToast({
         title: '短评最多12个字',

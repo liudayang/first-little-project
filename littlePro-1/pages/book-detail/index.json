@@ -1,1 +1,7 @@
-{}
+{
+  "usingComponents": {
+    "ldy-tag": "/components/tag/index",
+    "ldy-like": "/components/like/index",
+    "ldy-mask": "/components/mask/index"
+  }
+}

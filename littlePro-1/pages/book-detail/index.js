@@ -1,6 +1,8 @@
 // pages/book-detail/index.js
 import { BOOKMODEL } from "../../models/book";
+import { LIKEMODEL } from "../../models/like";
 const bookModel = new BOOKMODEL();
+const likeModel = new LIKEMODEL();
 Page({
 
   /**
@@ -8,10 +10,58 @@ Page({
    */
   data: {
     comments: [],
-    details: null,
+    book: null,
     likeStatus: false,
     likeCount: 0,
-    posting: false
+    posting: false,
+    exTagClassArray: ['ex-tag1', 'ex-tag2']
+  },
+  onLike(event) {
+    const like_or_cancel = event.detail.behavior
+    likeModel.like(like_or_cancel, this.data.book.id, 400)
+  },
+  onFakePost(event) {
+    this.setData({
+      posting: true
+    })
+  },
+  onCancel(event) {
+    this.setData({
+      posting: false
+    })
+  },
+  onPost(event) {
+    console.log(bookModel.postComment);
+
+    const comment = event.detail.text || event.detail.value
+    if (!comment) {
+      return
+    }
+    if (comment.length > 12) {
+      wx.showToast({
+        title: '短评最多12个字',
+        icon: 'none'
+      })
+      return
+    }
+
+    bookModel.postComment(this.data.book.id, comment)
+      .then(res => {
+        wx.showToast({
+          title: '+ 1',
+          icon: "none"
+        })
+
+        this.data.comments.unshift({
+          content: comment,
+          nums: 1
+        })
+
+        this.setData({
+          comments: this.data.comments,
+          posting: false
+        })
+      })
   },
 
   /**
@@ -20,13 +70,13 @@ Page({
   onLoad: function (options) {
     console.log(options);
     const bid=options.bid;
-    const details = bookModel.getDetail(bid)
+    const book = bookModel.getDetail(bid)
     const comments = bookModel.getComments(bid)
     const likeStatus = bookModel.getLikeStatus(bid)
-    Promise.all([details,comments,likeStatus]).then(res=>{
+    Promise.all([book,comments,likeStatus]).then(res=>{
       console.log(res);
       this.setData({
-        details: res[0],
+        book: res[0],
         comments: res[1].comments,
         likeStatus: res[2].like_status,
         likeCount: res[2].fav_nums
