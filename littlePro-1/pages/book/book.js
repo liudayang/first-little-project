@@ -1,15 +1,28 @@
 // pages/book/book.js
 import { BOOKMODEL } from "../../models/book";
+import { KeywordModel } from "../../models/keyword";
+
 const bookModel = new BOOKMODEL();
+const keywordModel = new KeywordModel();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    books: []
+    books: [],
+    searching:false
   },
-
+  onSearching(e){
+    this.setData({
+      searching: true
+    })
+  },
+  onCancel() {
+    this.setData({
+      searching: false
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

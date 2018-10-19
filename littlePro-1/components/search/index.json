@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "ldy-tag": "/components/tag/index",
+    "ldy-book": "/components/book/index"
+  }
+}

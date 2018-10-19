@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "ldy-book": "/components/book/index"
-   
+    "ldy-book": "/components/book/index",
+    "ldy-search": "/components/search/index"  
   }
 }

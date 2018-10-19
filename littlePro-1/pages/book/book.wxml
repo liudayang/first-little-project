@@ -1,4 +1,4 @@
-  <view class="container">
+  <view class="container"  wx:if="{{!searching}}">
     <view class="header">
       <view class='box' bind:tap="onSearching">
         <image src="/images/icon/search.png" />
@@ -14,4 +14,4 @@
       </view>
     </view>
   </view>
-<v-search more="{{more}}" bind:cancel="onCancel" wx:if="{{searching}}" />
+<ldy-search more="{{more}}" bind:cancel="onCancel" wx:if="{{searching}}" />

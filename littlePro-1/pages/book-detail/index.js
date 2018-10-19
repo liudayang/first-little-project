@@ -68,6 +68,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading()
+
     console.log(options);
     const bid=options.bid;
     const book = bookModel.getDetail(bid)
@@ -75,6 +77,7 @@ Page({
     const likeStatus = bookModel.getLikeStatus(bid)
     Promise.all([book,comments,likeStatus]).then(res=>{
       console.log(res);
+      wx.hideLoading()
       this.setData({
         book: res[0],
         comments: res[1].comments,

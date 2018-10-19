@@ -66,3 +66,8 @@
 .books-container v-book{
     margin-bottom: 10rpx;
 }
+ldy-tag {
+    margin-right:15rpx;
+    margin-bottom:10rpx;
+}
+
